@@ -2,7 +2,10 @@
   "name": "evoline-medslot",
   "version": "1.0.0",
   "private": true,
-  "workspaces": ["apps/*", "packages/*"],
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
   "scripts": {
     "dev": "turbo run dev",
     "build": "turbo run build",
@@ -13,5 +16,8 @@
   },
   "devDependencies": {
     "turbo": "^1.13.0"
+  },
+  "dependencies": {
+    "next": "^14.2.35"
   }
 }
