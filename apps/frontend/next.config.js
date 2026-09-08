@@ -3,6 +3,11 @@ const nextConfig = {
   // Output standalone for Docker deployments
   output: 'standalone',
 
+  // Disable static generation for dynamic pages
+  experimental: {
+    dynamicIO: true,
+  },
+
   // API rewrites — proxy to backend in development
   async rewrites() {
     return [
@@ -23,6 +28,12 @@ const nextConfig = {
 
   // Strict mode for better dev experience
   reactStrictMode: true,
+
+  // Skip static generation errors
+  onDemandEntries: {
+    maxInactiveAge: 60 * 1000,
+    pagesBufferLength: 5,
+  },
 };
 
 module.exports = nextConfig;
