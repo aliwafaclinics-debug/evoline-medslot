@@ -74,7 +74,15 @@ export function InquiryForm({ listingId, askingPrice, onSuccess }: InquiryFormPr
   const onSubmit = async (values: InquiryFormValues) => {
     setErrorMsg(null);
     try {
-      await createInquiry({ listingId, ...values });
+      const payload: any = {
+        listingId,
+        message: values.message,
+        budgetMin: values.budgetMin,
+        budgetMax: values.budgetMax,
+        stakeInterestPct: values.stakeInterestPct,
+        timeline: values.timeline,
+      };
+      await createInquiry(payload);
       setSubmitted(true);
       onSuccess?.();
     } catch (err) {
